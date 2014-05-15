@@ -63,7 +63,16 @@ namespace LinqAndEntityFramework.ConsoleApp
                 new Group{ Id = 6, Name = "Breads" }
             };
 
-            return groups.Where(g => g.Id == id).SingleOrDefault();
+            Group group = new Group();
+            foreach (Group g in groups)
+            {
+                if (g.Id==id)
+                {
+                    group = g;
+                    break;
+                }
+            }
+            return group;
         }
 
         private static Category GetCategory( int id )
@@ -73,7 +82,16 @@ namespace LinqAndEntityFramework.ConsoleApp
                 new Category{ Id = 2, Group = GetGroup(1), Name = "Cold Drinks" }
             };
 
-            return categories.Where(c => c.Id == id).SingleOrDefault();
+            Category category = new Category();
+            foreach (Category g in categories)
+            {
+                if (g.Id == id)
+                {
+                    category = g;
+                    break;
+                }
+            }
+            return category;
         }
 
         private static List<Product> GetBreads()
