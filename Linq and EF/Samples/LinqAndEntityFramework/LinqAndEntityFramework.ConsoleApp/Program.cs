@@ -10,9 +10,12 @@ namespace LinqAndEntityFramework.ConsoleApp
     {
         static void Main(string[] args)
         {
-            DataProvider.GetProducts()
-                .ForEach(prod => Console.WriteLine(String.Format("Product Name : {0}, Price : {1}, Category : {2}, Group : {3}",
-                    prod.Name, prod.Price, prod.Category.Name, prod.Category.Group.Name)));
+            List<Product> products = DataProvider.GetProducts();
+            foreach (Product product in products)
+            {
+                Console.WriteLine(string.Format("Product Name : {0}, Price : {1}, Category : {2}, Group : {3}",
+                    product.Name, product.Price, product.Category.Name, product.Category.Group.Name));
+            }            
             Console.Read();
         }
     }
