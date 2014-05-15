@@ -39,7 +39,7 @@ namespace LinqAndEntityFramework.ConsoleApp
 
         static DataProvider()
         {
-            DataProvider.Groups = new List<Group> {                 
+            Groups = new List<Group> {                 
                     new Group{ Id = 1, Name = "Drinks" },
                     new Group{ Id = 2, Name = "Main Dish" },
                     new Group{ Id = 3, Name = "Side Dish" },
@@ -48,7 +48,7 @@ namespace LinqAndEntityFramework.ConsoleApp
                     new Group{ Id = 6, Name = "Breads" }                
             };
 
-            DataProvider.Categories = new List<Category> { 
+            Categories = new List<Category> { 
                 new Category{ Id = 1, Group = GetGroup(1), Name = "Hot Drinks" },
                 new Category{ Id = 2, Group = GetGroup(1), Name = "Cold Drinks" },
                 new Category{ Id = 3, Group = GetGroup(2), Name = "Chinese" },

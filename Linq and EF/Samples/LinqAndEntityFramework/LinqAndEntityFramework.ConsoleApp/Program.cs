@@ -8,14 +8,37 @@ namespace LinqAndEntityFramework.ConsoleApp
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
             List<Product> products = DataProvider.GetProducts();
-            foreach (Product product in products)
+            var list = (from product in products
+                where product.Price > 10
+                orderby product.Price
+                select
+                    new // type?? annonymous type. 
+                    {
+                        Name = product.Name,
+                        Code = product.Code,
+                        Price = product.Price,
+                        Category = product.Category.Name,
+                        Group = product.Category.Group.Name
+                    }
+                ).ToList();
+
+
+            double sum = 0;
+            foreach (var v in list)
             {
-                Console.WriteLine(string.Format("Product Name : {0}, Price : {1}, Category : {2}, Group : {3}",
-                    product.Name, product.Price, product.Category.Name, product.Category.Group.Name));
-            }            
+                sum += v.Price;
+            }
+
+            double d = list.Sum(p=>p.Price);
+            double max = list.Max(p => p.Price);
+
+            products.First(p => p.Id == 10);
+            
             Console.Read();
         }
     }
