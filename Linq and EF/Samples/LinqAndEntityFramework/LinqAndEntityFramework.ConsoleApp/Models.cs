@@ -31,8 +31,37 @@ namespace LinqAndEntityFramework.ConsoleApp
         public Category Category { get; set; }
     }
 
-    public class DataProvider
+    public static class DataProvider
     {
+        public static List<Group> Groups { get; private set; }
+
+        public static List<Category> Categories { get; private set; }
+
+        static DataProvider()
+        {
+            DataProvider.Groups = new List<Group> {                 
+                    new Group{ Id = 1, Name = "Drinks" },
+                    new Group{ Id = 2, Name = "Main Dish" },
+                    new Group{ Id = 3, Name = "Side Dish" },
+                    new Group{ Id = 4, Name = "Starters" },
+                    new Group{ Id = 5, Name = "Rices" },
+                    new Group{ Id = 6, Name = "Breads" }                
+            };
+
+            DataProvider.Categories = new List<Category> { 
+                new Category{ Id = 1, Group = GetGroup(1), Name = "Hot Drinks" },
+                new Category{ Id = 2, Group = GetGroup(1), Name = "Cold Drinks" },
+                new Category{ Id = 3, Group = GetGroup(2), Name = "Chinese" },
+                new Category{ Id = 4, Group = GetGroup(2), Name = "Indian" },                
+                new Category{ Id = 5, Group = GetGroup(3), Name = "Desert" },
+                new Category{ Id = 6, Group = GetGroup(4), Name = "Appetizers" },
+                new Category{ Id = 7, Group = GetGroup(5), Name = "Long Grain" },
+                new Category{ Id = 8, Group = GetGroup(5), Name = "Short Grain" },
+                new Category{ Id = 9, Group = GetGroup(6), Name = "Wheat" },
+                new Category{ Id = 10, Group = GetGroup(6), Name = "Corn" }
+            };
+        }
+
         public static List<Product> GetProducts()
         {
             List<Product> drinksList = GetDrinks();
@@ -54,17 +83,8 @@ namespace LinqAndEntityFramework.ConsoleApp
 
         private static Group GetGroup( int id )
         {
-            var groups = new List<Group> {
-                new Group{ Id = 1, Name = "Drinks" },
-                new Group{ Id = 2, Name = "Main Dish" },
-                new Group{ Id = 3, Name = "Side Dish" },
-                new Group{ Id = 4, Name = "Starters" },
-                new Group{ Id = 5, Name = "Rices" },
-                new Group{ Id = 6, Name = "Breads" }
-            };
-
             Group group = new Group();
-            foreach (Group g in groups)
+            foreach (Group g in Groups)
             {
                 if (g.Id==id)
                 {
@@ -77,21 +97,8 @@ namespace LinqAndEntityFramework.ConsoleApp
 
         private static Category GetCategory( int id )
         {
-            var categories = new List<Category> { 
-                new Category{ Id = 1, Group = GetGroup(1), Name = "Hot Drinks" },
-                new Category{ Id = 2, Group = GetGroup(1), Name = "Cold Drinks" },
-                new Category{ Id = 3, Group = GetGroup(2), Name = "Chinese" },
-                new Category{ Id = 4, Group = GetGroup(2), Name = "Indian" },                
-                new Category{ Id = 5, Group = GetGroup(3), Name = "Desert" },
-                new Category{ Id = 6, Group = GetGroup(4), Name = "Appetizers" },
-                new Category{ Id = 7, Group = GetGroup(5), Name = "Long Grain" },
-                new Category{ Id = 8, Group = GetGroup(5), Name = "Short Grain" },
-                new Category{ Id = 9, Group = GetGroup(6), Name = "Wheat" },
-                new Category{ Id = 10, Group = GetGroup(6), Name = "Corn" }
-            };
-
             Category category = new Category();
-            foreach (Category g in categories)
+            foreach (Category g in Categories)
             {
                 if (g.Id == id)
                 {
