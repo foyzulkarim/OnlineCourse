@@ -52,6 +52,30 @@ namespace LinqAndEntityFramework.ConsoleApp
             return products;
         }
 
+        private static Group GetGroup( int id )
+        {
+            var groups = new List<Group> {
+                new Group{ Id = 1, Name = "Drinks" },
+                new Group{ Id = 2, Name = "Main Dish" },
+                new Group{ Id = 3, Name = "Side Dish" },
+                new Group{ Id = 4, Name = "Starters" },
+                new Group{ Id = 5, Name = "Rices" },
+                new Group{ Id = 6, Name = "Breads" }
+            };
+
+            return groups.Where(g => g.Id == id).SingleOrDefault();
+        }
+
+        private static Category GetCategory( int id )
+        {
+            var categories = new List<Category> { 
+                new Category{ Id = 1, Group = GetGroup(1), Name = "Hot Drinks" },
+                new Category{ Id = 2, Group = GetGroup(1), Name = "Cold Drinks" }
+            };
+
+            return categories.Where(c => c.Id == id).SingleOrDefault();
+        }
+
         private static List<Product> GetBreads()
         {
             return new List<Product>();
@@ -79,14 +103,11 @@ namespace LinqAndEntityFramework.ConsoleApp
 
         private static List<Product> GetDrinks()
         {
-            Group drinks = new Group() {Id = 1, Name = "Drinks"};
-            Category coldDrinks = new Category() {Id = 1, Name = "Cold Drinks", Group = drinks};
-            Category hotDrinks = new Category() {Id = 2, Name = "Hot Drinks", Group = drinks};
-            Product coke = new Product() {Id = 1, Name = "Coke", Code = "101", Price = 30.0, Category = coldDrinks};
-            Product lassi = new Product() {Id = 2, Name = "Lassi", Code = "102", Price = 40.0, Category = coldDrinks};
-            Product coffee = new Product() {Id = 3, Name = "Coffee", Code = "103", Price = 60.0, Category = hotDrinks};
-            List<Product> drinksList = new List<Product> {lassi, coke, coffee};
-            return drinksList;
+            return new List<Product> {
+                new Product{ Id = 1, Name = "Coke", Code = "101", Price = 30.0, Category = GetCategory(1) },
+                new Product{ Id = 2, Name = "Lassi", Code = "102", Price = 40.0, Category = GetCategory(2) },
+                new Product{ Id = 3, Name = "Coffee", Code = "103", Price = 60.0, Category = GetCategory(1) }
+            };
         }
     }
 }
