@@ -19,5 +19,4 @@ namespace LinqAndEntityFramework.ConsoleApp
             Console.Read();
         }
     }
-
 }
