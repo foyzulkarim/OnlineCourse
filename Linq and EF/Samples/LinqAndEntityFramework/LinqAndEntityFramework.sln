@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinqAndEntityFramework.ConsoleApp", "LinqAndEntityFramework.ConsoleApp\LinqAndEntityFramework.ConsoleApp.csproj", "{C6B9325C-A056-4195-A655-B534AF4A815F}"
 EndProject
 Global
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = eab21649-cd8f-4ea0-bc9d-ec3b0c5d3841
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
