@@ -8,8 +8,6 @@ namespace LinqAndEntityFramework.ConsoleApp
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
             List<Product> products = DataProvider.GetProducts();
@@ -38,7 +36,7 @@ namespace LinqAndEntityFramework.ConsoleApp
             double max = list.Max(p => p.Price);
 
             products.First(p => p.Id == 10);
-            
+     //test line       
             Console.Read();
         }
     }
