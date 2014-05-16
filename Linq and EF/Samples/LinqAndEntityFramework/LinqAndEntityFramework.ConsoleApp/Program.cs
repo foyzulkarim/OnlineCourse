@@ -28,11 +28,7 @@ namespace LinqAndEntityFramework.ConsoleApp
                 ).ToList();
 
 
-            double sum = 0;
-            foreach (var v in list)
-            {
-                sum += v.Price;
-            }
+            double sum = list.Sum(v => v.Price);
 
             double d = list.Sum(p=>p.Price);
             double max = list.Max(p => p.Price);
