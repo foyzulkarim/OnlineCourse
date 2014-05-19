@@ -84,13 +84,10 @@ namespace LinqAndEntityFramework.ConsoleApp
         private static Group GetGroup( int id )
         {
             Group group = new Group();
-            foreach (Group g in Groups)
+            foreach (Group g in Groups.Where(g => g.Id==id))
             {
-                if (g.Id==id)
-                {
-                    group = g;
-                    break;
-                }
+                @group = g;
+                break;
             }
             return group;
         }
