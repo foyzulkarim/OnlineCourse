@@ -36,7 +36,7 @@ namespace LinqAndEntityFramework.ConsoleApp
             double max = list.Max(p => p.Price);
 
             products.First(p => p.Id == 10);
-     //test line       
+     
             Console.Read();
         }
     }
