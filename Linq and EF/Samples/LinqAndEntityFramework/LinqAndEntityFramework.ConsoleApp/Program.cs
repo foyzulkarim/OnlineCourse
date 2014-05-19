@@ -30,6 +30,7 @@ namespace LinqAndEntityFramework.ConsoleApp
             int count = list.Count;
             double d = list.Sum(p=>p.Price);
             double max = list.Max(p => p.Price);
+            double min = list.Min(l => l.Price);
 
             Product first = products.First(p => p.Id == 10);
 
