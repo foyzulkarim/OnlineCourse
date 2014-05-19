@@ -27,7 +27,7 @@ namespace LinqAndEntityFramework.ConsoleApp
 
 
             double sum = list.Sum(v => v.Price);
-
+            int count = list.Count;
             double d = list.Sum(p=>p.Price);
             double max = list.Max(p => p.Price);
 
