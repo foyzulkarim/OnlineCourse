@@ -33,5 +33,10 @@ namespace SchoolManagement.Manager
             }
             Db.SaveChanges();
         }
+
+        public List<Student> GetStudents()
+        {
+            return Db.Students.ToList();
+        }
     }
 }
