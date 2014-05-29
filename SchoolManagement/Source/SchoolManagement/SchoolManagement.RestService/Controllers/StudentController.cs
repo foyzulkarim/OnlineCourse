@@ -17,5 +17,14 @@ namespace SchoolManagement.RestService.Controllers
             List<Student> students = manager.GetStudents();
             return students;
         }
+
+
+        public bool Post(Student student)
+        {
+            StudentManager manager = new StudentManager();
+             manager.Add(student);
+             return true;
+        }
+
     }
 }
