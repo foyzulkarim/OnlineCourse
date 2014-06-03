@@ -22,8 +22,8 @@ namespace SchoolManagement.RestService.Controllers
         public bool Post(Student student)
         {
             StudentManager manager = new StudentManager();
-             manager.Add(student);
-             return true;
+            manager.Add(student);
+            return true;
         }
 
     }
