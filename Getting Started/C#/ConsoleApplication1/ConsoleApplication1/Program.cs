@@ -10,10 +10,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            string input1 = Console.ReadLine();
-            string input2 = Console.ReadLine();
-            string result = input1 + input2;
+            // input a number
+            string valueStr = Console.ReadLine();
+            // convert the string to number
+            int value = Convert.ToInt32(valueStr);
+            // square that number
+            int result = value*value;
+            // show that number
             Console.WriteLine(result);
+
             Console.ReadKey();
         }
     }
