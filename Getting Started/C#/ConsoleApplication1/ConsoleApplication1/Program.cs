@@ -10,15 +10,15 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            // input a number
-            string valueStr = Console.ReadLine();
-            // convert the string to number
-            int value = Convert.ToInt32(valueStr);
-            // square that number
-            int result = value*value;
-            // show that number
-            Console.WriteLine(result);
-
+            Console.WriteLine("Please input first number: ");
+            string firstNumStr = Console.ReadLine();         
+            int first = Convert.ToInt32(firstNumStr);
+            Console.WriteLine("Please input second number: ");
+            string secondNumStr = Console.ReadLine();
+            int second = Convert.ToInt32(secondNumStr);
+            Console.WriteLine("The sum is: ");
+            int sum = Calculator.Add(first, second);
+            Console.WriteLine(sum);
             Console.ReadKey();
         }
     }
