@@ -26,5 +26,15 @@ namespace WindowsFormsApplication1
             // we will display it as a messagebox info
             MessageBox.Show(value);
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Red;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Silver;
+        }
     }
 }
