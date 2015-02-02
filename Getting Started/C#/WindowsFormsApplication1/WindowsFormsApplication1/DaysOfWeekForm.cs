@@ -19,22 +19,16 @@ namespace WindowsFormsApplication1
 
         private void DaysOfWeekForm_Load(object sender, EventArgs e)
         {
-            List<string> days = new List<string>();
-            days.Add("Saturday");
-            days.Add("Sunday");
-            days.Add("Monday");
-            days.Add("Tuesday");
-            days.Add("Wednesday");
-            days.Add("Thursday");
-            days.Add("Friday");
-
-            comboBox1.DataSource = days;
+            Type myType = typeof(ComboBoxStyle);
+            string[] styles = Enum.GetNames(myType);
+            comboBox1.DataSource = styles;
             
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBox1.SelectedItem.ToString());
+            comboBox1.DropDownStyle =
+              (ComboBoxStyle)  Enum.Parse(typeof (ComboBoxStyle), comboBox1.SelectedItem.ToString());
         }     
     }
 }
