@@ -27,8 +27,7 @@ namespace SchoolApplication.ConsoleClient
                 //student.Phone = Console.ReadLine();
                
                 db.Students.Attach(student);
-                db.Entry(student).State = EntityState.Deleted;
-                //db.Students.Remove(student);
+                db.Entry(student).State = EntityState.Deleted;                
                 db.SaveChanges();
 
                 DisplayStudents(db.Students.ToList());
