@@ -15,21 +15,25 @@ namespace SchoolApplication.ConsoleClient
         {
             using (SchoolDataContext db = new SchoolDataContext())
             {
-                Console.WriteLine("Update a new student. ");
-                Student student = new Student();
-                Console.WriteLine("Write the Id");
-                student.StudentId = Convert.ToInt32(Console.ReadLine());
-                //Console.WriteLine("Write name: ");
-                //student.Name = Console.ReadLine();
-                //Console.WriteLine("Write address: ");
-                //student.Address = Console.ReadLine();
-                //Console.WriteLine("Write phone: ");
-                //student.Phone = Console.ReadLine();
-               
-                db.Students.Attach(student);
-                db.Entry(student).State = EntityState.Deleted;                
+                Console.WriteLine("Enter a department name:");
+                string dName = Console.ReadLine();
+                Department department = new Department()
+                {
+                    Name = dName
+                };
+                db.Departments.Add(department);
                 db.SaveChanges();
 
+                Console.WriteLine("Enter a student information:");
+                Student student = new Student {Department = department};
+                Console.WriteLine("Write name: ");
+                student.Name = Console.ReadLine();
+                Console.WriteLine("Write address: ");
+                student.Address = Console.ReadLine();
+                Console.WriteLine("Write phone: ");
+                student.Phone = Console.ReadLine();
+                db.Students.Add(student);
+                db.SaveChanges();
                 DisplayStudents(db.Students.ToList());
             }
 
@@ -41,7 +45,7 @@ namespace SchoolApplication.ConsoleClient
         {
             foreach (Student s in students)
             {
-                Console.WriteLine(s.Name);
+                Console.WriteLine(s.Name+ " - "+ s.Department.Name);
             }
         }
     }
