@@ -1,5 +1,10 @@
 <p>This is the partial for view 2.</p>
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+    <span>Name</span><input ng-model="name"/><br/>
+    <span>Phone</span><input ng-model="phone" /><br />
+    <span>Address</span><input ng-model="address" /><br />    
+</p>
+<p>
+    <span>{{notification}}</span>
+    <button ng-click="save()">Save</button>
 </p>

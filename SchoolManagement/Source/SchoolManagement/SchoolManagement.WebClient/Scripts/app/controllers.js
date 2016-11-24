@@ -21,8 +21,26 @@ angular.module('myApp.controllers', [])
       });
 
   }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
+  .controller('MyCtrl2', ['$scope', 'Student', function ($scope, Student) {
 
+      $scope.name = '';
+      $scope.phone = '';
+      $scope.address = '';
+
+      $scope.save = function() {
+          Student.save({Name : $scope.name,Phone: $scope.phone,Address:$scope.address}, function(response) {
+              if (response) {
+                  $scope.notification = 'Student is saved';
+                  $scope.name = '';
+                  $scope.phone = '';
+                  $scope.address = '';
+              } else {
+                  $scope.notification = 'Student is not saved';
+              }
+          });
+      };
+
+     
   }]);
 
 
